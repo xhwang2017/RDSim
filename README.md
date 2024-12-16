@@ -1,5 +1,5 @@
-# RareSimulator
-RareSimulator is a Python package designed to simulate the genotypes and phenotypes of rare disease patients. This package can be used by researchers and student to generate synthetic data for studying the relationship between specific genetic mutations and the phenotypic manifestations associated with rare diseases.
+# RDSim
+RDSim is a Python package designed to simulate the genotypes and phenotypes of rare disease patients. This package can be used by researchers and student to generate synthetic data for studying the relationship between specific genetic mutations and the phenotypic manifestations associated with rare diseases.
 
 # Features
 Genotypes Simulation: Generate synthetic genotypes with user-defined mutation rates for specific genes.
@@ -8,18 +8,18 @@ Disease Models: Supports custom models linking genes to symptoms, enabling flexi
 Synthetic Data: Generate data for testing and validating algorithms or understanding disease-gene relationships.
 
 # Installation
-To install RareSimulator, you’ll need Python 3.6 or higher. Install via pip:
+To install RDSim, you’ll need Python 3.6 or higher. Install via pip:
 
 bash\
 Copy code\
-pip install git+https://github.com/xhwang2017/RareSimulator.git
+pip install git+https://github.com/xhwang2017/RDSim.git
 
 Alternatively, you can clone the repository and install it locally:
 
 bash\
 Copy code\
-git clone https://github.com/xhwang2017/RareSimulator.git
-cd RareSimulator\
+git clone https://github.com/xhwang2017/RDSim.git
+cd RDSim\
 pip install .
 
 # Usage
