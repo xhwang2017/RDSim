@@ -48,12 +48,20 @@ To use the RDSim Simulation Tool, follow these steps:
 3. Run the script with the desired command-line arguments (explained below).
 
 ## Example Usage
-1. Simulation of European population genotypes (e.g., simulating 2,000 European individuals)
+### Genotype simulations
+Step 1: Determine the total number of individuals to simulate (e.g., simulating 2,000 European individuals).
 ```bash
 ./eur_sim.sh --n 2000
 ```
 - `--n`: The number of simulated individuals.
- 
+This command generated a output BED file named `eur_genome`.
+  
+
+
+Step 2: Dertemine the simulation type
+1) Case-based simulation (e.g., simulating 2000 Individuals with all the 1508 rare disease patients, and the remaining would be the controls)
+
+
 
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
