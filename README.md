@@ -1,11 +1,11 @@
-# RDSim
-RDSim is a Python package designed to simulate the genotypes and phenotypes of rare disease patients. This package can be used by researchers and student to generate synthetic data for studying the relationship between specific genetic mutations and the phenotypic manifestations associated with rare diseases.
+## RDSim
+# Introduction
+RDSim is a Python package designed to simulate the genotypes and phenotypes of rare disease patients. This package can be used by researchers and students to generate synthetic data for facilitating the evaluation of tools aimed at identifying the causal genes or mutations of rare diseases. 
 
-# Features
-Genotypes Simulation: Generate synthetic genotypes with user-defined mutation rates for specific genes.
-Phenotype Simulation: Map genotypic variations to observable characteristics (phenotypes) based on predefined disease models.
-Disease Models: Supports custom models linking genes to symptoms, enabling flexible simulations for various rare diseases.
-Synthetic Data: Generate data for testing and validating algorithms or understanding disease-gene relationships.
+Genotypes Simulation: 
+Phenotype Simulation: 
+
+
 
 # Installation
 To install RDSim, you’ll need Python 3.6 or higher. Install via pip:
