@@ -10,7 +10,7 @@ for chr in $(seq 1 22);
 	gunzip ALL_1000G_phase1integrated_v3_chr${chr}_impute.legend.gz
 done
 
-# Extract Eurpean population genotypes
+# Extract European population genotypes
 for chr in $(seq 1 22); do
         cut -f 2-182,359,397-402,405-497,996-1093 -d " " ALL_1000G_phase1integrated_v3_chr${chr}_impute.hap \
         > chr${chr}.eur_subset.hap 
