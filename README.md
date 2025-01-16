@@ -32,6 +32,9 @@ Alternatively, you can clone the repository and install it locally:
 
 ```bash
 git clone https://github.com/xhwang2017/RDSim.git
+cd RDSim
+pip install .
+
 ```
 
 # Usage
