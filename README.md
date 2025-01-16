@@ -6,6 +6,8 @@ For genotype simulation, the process begins by simulating genotypes for a specif
 
 For phenotype simulation, HPO terms related to rare diseases, along with the complete set of HPO terms, are selected from the HPO database. Three scenarios can then be simulated for HPO term selection: using all HPO terms associated with the disease, randomly choosing n HPO terms related to rare diseases, or adding m HPO terms from the entire HPO database to introduce some noise.
 
+Additionally, this simulation tool can be used to simulate rare diseases for specific populations, including European (EUR), Asian (ASN), and African American (AFR).
+
 # Functions
 **1) Case-based simulation:** The simulation covers 1,508 rare diseases, including 694 autosomal dominant (AD) and 814 autosomal recessive (AR) conditions. Each rare disease patient has a mutation associated with a specific rare disease.
 
@@ -34,7 +36,6 @@ Alternatively, you can clone the repository and install it locally:
 git clone https://github.com/xhwang2017/RDSim.git
 cd RDSim
 pip install .
-
 ```
 
 # Usage
@@ -47,7 +48,12 @@ To use the RDSim Simulation Tool, follow these steps:
 3. Run the script with the desired command-line arguments (explained below).
 
 ## Example Usage
-
+1. Simulation of European population genotypes (e.g., simulating 2,000 European individuals)
+```bash
+./eur_sim.sh --n 2000
+```
+- `--n`: The number of simulated individuals.
+ 
 
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
