@@ -14,19 +14,16 @@ For phenotype simulation, HPO terms related to rare diseases, along with the com
 **3) Pathway-based simlation:** This allows the simulation of 736 pathway-based rare diseases (342 AD and 396 AR). Each rare disease involves three patients: two as in the pair simulations, and a third who has a mutation in a gene within the same pathway as the causal gene. This approach can be used to match similar patients and identify new mutations in different genes associated with a disease.
 
 # Installation
-To install RDSim, you’ll need Python 3.6 or higher. Install via pip:
+To install RDSim, you’ll need Python 3.6 or higher. 
 
-bash\
-Copy code\
-pip install git+https://github.com/xhwang2017/RDSim.git
+Install via pip:
+
+`fafa`pip install git+https://github.com/xhwang2017/RDSim.git
 
 Alternatively, you can clone the repository and install it locally:
 
-bash\
-Copy code\
-git clone https://github.com/xhwang2017/RDSim.git
-cd RDSim\
-pip install .
+``git clone https://github.com/xhwang2017/RDSim.git
+
 
 # Usage
 After installation, you can start using the package to simulate genotype and phenotype data for rare disease patients.
