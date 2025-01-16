@@ -38,9 +38,16 @@ pip install .
 ```
 
 # Usage
-After installation, you can start using the package to simulate genotype and phenotype data for rare disease patients.
+To use the RDSim Simulation Tool, follow these steps:
 
-# Example Usage
+1. Open your terminal or command prompt.
+
+2. Navigate to the directory containing the phemulator.py script.
+
+3. Run the script with the desired command-line arguments (explained below).
+
+## Example Usage
+
 
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
