@@ -57,7 +57,7 @@ Step 1: Determine the total number of individuals to simulate (e.g., simulating 
 
 This command line generates an output BED file named `eur_genome`, which simulates the whole genome genotypes for chromosomes 1 to 22.
 
-    * The exome genotypes can be generated through the exon_sim.sh function.
+_* The exome genotypes can be generated through the exon_sim.sh function._
 ```bash
 ./exom_sim.sh --input eur_genome --output snps_in_exons
 ```
