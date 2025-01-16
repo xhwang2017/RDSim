@@ -18,7 +18,7 @@ To install RDSim, you’ll need Python 3.6 or higher.
 
 Install via pip:
 
->`pip install git+https://github.com/xhwang2017/RDSim.git`
+`pip install git+https://github.com/xhwang2017/RDSim.git`
 
 Alternatively, you can clone the repository and install it locally:
 
