@@ -20,14 +20,13 @@ Install via pip:
 
 ```bash
 pip install git+https://github.com/xhwang2017/RDSim.git
-
 ```
 
 Alternatively, you can clone the repository and install it locally:
 
+```bash
 git clone https://github.com/xhwang2017/RDSim.git
-
-
+```
 # Usage
 After installation, you can start using the package to simulate genotype and phenotype data for rare disease patients.
 
