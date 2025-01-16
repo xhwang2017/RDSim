@@ -54,9 +54,15 @@ Step 1: Determine the total number of individuals to simulate (e.g., simulating 
 ./eur_sim.sh --n 2000
 ```
 - `--n`: The number of simulated individuals.
-This command generated a output BED file named `eur_genome`.
-  
 
+This command line generates an output BED file named `eur_genome`, which simulates the whole genome genotypes for chromosomes 1 to 22.
+
+    * The exome genotypes can be generated through the exon_sim.sh function.
+```bash
+./exom_sim.sh --input eur_genome --output snps_in_exons
+```
+- `--input`: Specify the PLINK binary file containing the whole genome genotypes.
+- `--output`: Specify the filtered PLINK binary file with genotypes in exon regions.
 
 Step 2: Dertemine the simulation type
 1) Case-based simulation (e.g., simulating 2000 Individuals with all the 1508 rare disease patients, and the remaining would be the controls)
