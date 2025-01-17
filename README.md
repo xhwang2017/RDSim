@@ -49,9 +49,9 @@ To use the RDSim Simulation Tool, follow these steps:
 
 ## Genotype simulations
 ### Step 1: Determine the total number of individuals to simulate
-For example, simulating 2,000 European individuals.
+For example, simulating 50 European individuals.
 ```bash
-./eur_sim.sh --n 2000
+./eur_sim.sh --n 50
 ```
 - `--n`: The number of simulated individuals.
 
@@ -65,9 +65,23 @@ _* The exome genotypes can be generated through the exon_sim.sh function._
 - `--output`: Specify the filtered PLINK binary file with genotypes in exon regions.
 
 ### Step 2: Dertemine the simulation type
-1) Case-based simulation (e.g., simulating 2000 Individuals with all the 1508 rare disease patients, and the remaining would be the controls)
+1) Case-based simulation
+For example, simulating 50 simulating 50 individuals, including 20 with autosomal dominant (AD) rare diseases, 20 with autosomal recessive (AR) rare diseases, and the remaining 10 serving as healthy controls.
+```bash
+python case_genotypes.py --n 20 --m --i 10
+```
+- `--n`: Number of AD
+- `--m`: Number of AR
+- `--i`: Number of case controls
 
+The outputs of this command:
 
+- `case_variants.txt`: Contains the simulated causative variants for each sample.
+
+- `case_chrom_pos.txt`: Contains the chromosome and position information for the causative variants.
+- 'case_genes.csv`: Contains the simulated causative genes for each sample.
+
+<img width="991" alt="Screenshot 2025-01-17 at 10 13 28 AM" src="https://github.com/user-attachments/assets/da6ac614-8ee6-48e1-8fd0-cb9cb5ea29f2" />
 
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
