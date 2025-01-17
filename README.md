@@ -26,9 +26,9 @@ Before you can use the tool, you need to make sure you have the required depende
 - HapGen2
 - PLINK
 
-HapGen2 installment link: (https://mathgen.stats.ox.ac.uk/genetics_software/hapgen/hapgen2.html)
+HapGen2 installation link: (https://mathgen.stats.ox.ac.uk/genetics_software/hapgen/hapgen2.html)
 
-PLINK isntallment link: (https://www.cog-genomics.org/plink/2.0/)
+PLINK isntallation link: (https://www.cog-genomics.org/plink/2.0/)
 
 Install via pip:
 
