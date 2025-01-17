@@ -108,7 +108,7 @@ The output fils of this command:
 - `pathway_chrom_pos.txt`: Contains the chromosome and position information for the causative variants.
 - `pathway_genes.csv`: Contains the simulated causative genes for each sample.
 
-## Sept 3: Add causative variants into the simulated genotypes
+### Sept 3: Add causative variants into the simulated genotypes
 
 ```bash
 # For case-based simulation
@@ -122,6 +122,37 @@ The output fils of this command:
 - `--input`: The simulated genotypes through Hapgen2
 - `--variants`: The simulated causative genes for each sample
 - `--output`: The simulated genetypes for rare diseases
+
+## Phenotype simulations
+For the phenotype simulation, HPO terms related to rare diseases, along with the complete set of HPO terms, are selected from the HPO database. Three scenarios can then be simulated for HPO term selection: 
+(1) Using all HPO terms associated with the disease
+(2) Randomly choosing i rare disease-related HPO terms
+(3) N rare disease-related HPO terms adding m HPO terms from the entire HPO database to introduce some noise.
+
+```bash
+# For case-based simulation
+case_phenotypes.py --n 20 --m 20 --hpo_i 5 --hpo_n 3 --hpo_m 2
+# For pairs-based simulation
+pairs_phenotypes.py --n 20 --m 20 --hpo_i 5 --hpo_n_3 --hpo_m 2
+# For case-based simulation
+pathway_phenotyes.py --n 30 --m 30 --hpo_i 5 --hpo_n_3 --hpo_m 2
+```
+- `--n`: Number of AD
+- `--m`: Number of AR
+- `--hpo_i`: Number of rare disease-related HPO terms simulating scenarios (2) randomly choosing i rare disease-related HPO terms.
+- `--hpo_n`: Number of rare disease-related HPO terms simulating scenarios (3) n rare disease-related HPO terms adding m HPO terms from the entire HPO database to introduce some noise.
+- `--hpo_m`: Number of rare disease-unrelated HPO terms simulating scenarios (3) n rare disease-related HPO terms adding m HPO terms from the entire HPO database to introduce some noise.
+
+The output fils of this command:
+For case-based simulation
+- `case_phenotypes.csv`: Contains the rare diseases and hpo information for each sample.
+- `case_hpo.csv`: Contains the simulated HPO terms of three scenarios for each sample.
+For pairs-based simulation
+- `pairs_phenotypes.csv`: Contains the rare diseases and hpo information for each sample.
+- `pairs_hpo.csv`: Contains the simulated HPO terms of three scenarios for each sample.
+For pathway-based simulation
+- `pathway_phenotypes.csv`: Contains the rare diseases and hpo information for each sample.
+- `pathway_hpo.csv`: Contains the simulated HPO terms of three scenarios for each sample.
 
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
