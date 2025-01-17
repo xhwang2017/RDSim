@@ -39,6 +39,8 @@ if [[ -z "$chrom_pos_file" || -z "$input_file" || -z "$variants_file" || -z "$ou
     exit 1
 fi
 
+wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_45/GRCh37_mapping/gencode.v45lift37.annotation.gtf.gz
+
 # Step 1: Convert CHROM and POS values to PLINK range format
 awk '{print $1, $2, $2}' "$chrom_pos_file" > rare_disease_snps.txt
 
