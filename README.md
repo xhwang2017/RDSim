@@ -47,9 +47,9 @@ To use the RDSim Simulation Tool, follow these steps:
 
 3. Run the script with the desired command-line arguments (explained below).
 
-## Example Usage
-### Genotype simulations
-Step 1: Determine the total number of individuals to simulate (e.g., simulating 2,000 European individuals).
+## Genotype simulations
+### Step 1: Determine the total number of individuals to simulate
+For example, simulating 2,000 European individuals.
 ```bash
 ./eur_sim.sh --n 2000
 ```
@@ -64,7 +64,7 @@ _* The exome genotypes can be generated through the exon_sim.sh function._
 - `--input`: Specify the PLINK binary file containing the whole genome genotypes.
 - `--output`: Specify the filtered PLINK binary file with genotypes in exon regions.
 
-Step 2: Dertemine the simulation type
+### Step 2: Dertemine the simulation type
 1) Case-based simulation (e.g., simulating 2000 Individuals with all the 1508 rare disease patients, and the remaining would be the controls)
 
 
