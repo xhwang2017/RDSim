@@ -145,9 +145,9 @@ For the phenotype simulation, HPO terms related to rare diseases, along with the
 # For case-based simulation
 case_phenotypes.py --n 20 --m 20 --hpo_i 5 --hpo_n 3 --hpo_m 2
 # For pairs-based simulation
-pairs_phenotypes.py --n 20 --m 20 --hpo_i 5 --hpo_n_3 --hpo_m 2
+pairs_phenotypes.py --n 20 --m 20 --hpo_i 5 --hpo_n 3 --hpo_m 2
 # For case-based simulation
-pathway_phenotyes.py --n 30 --m 30 --hpo_i 5 --hpo_n_3 --hpo_m 2
+pathway_phenotyes.py --n 30 --m 30 --hpo_i 5 --hpo_n 3 --hpo_m 2
 ```
 - `--n`: Number of AD
 - `--m`: Number of AR
