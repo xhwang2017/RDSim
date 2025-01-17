@@ -64,9 +64,9 @@ _* The exome genotypes can be generated through the exon_sim.sh function._
 - `--input`: Specify the PLINK binary file containing the whole genome genotypes.
 - `--output`: Specify the filtered PLINK binary file with genotypes in exon regions.
 
-### Step 2: Dertemine the simulation type
+### Step 2: Dertemine the simulation type to generate causative variants
 1) Case-based simulation
-For example, simulating 50 simulating 50 individuals, including 20 with autosomal dominant (AD) rare diseases, 20 with autosomal recessive (AR) rare diseases, and the remaining 10 serving as healthy controls.
+For example, simulating 50 individuals, including 20 with autosomal dominant (AD) rare diseases, 20 with autosomal recessive (AR) rare diseases, and the remaining 10 serving as healthy controls.
 ```bash
 python case_genotypes.py --n 20 --m --i 10
 ```
@@ -74,19 +74,54 @@ python case_genotypes.py --n 20 --m --i 10
 - `--m`: Number of AR
 - `--i`: Number of case controls
 
-The outputs of this command:
+The output fils of this command:
 
 - `case_variants.txt`: Contains the simulated causative variants for each sample.
-<img width="737" alt="Screenshot 2025-01-17 at 10 20 49 AM" src="https://github.com/user-attachments/assets/d337d6fa-f1d4-48dd-ad69-b7c879fc4cef" />
-
 - `case_chrom_pos.txt`: Contains the chromosome and position information for the causative variants.
-<img width="101" alt="Screenshot 2025-01-17 at 10 21 19 AM" src="https://github.com/user-attachments/assets/6e62e447-25ba-4e16-a75a-e2478d69b6b5" />
-
 - `case_genes.csv`: Contains the simulated causative genes for each sample.
-<img width="588" alt="Screenshot 2025-01-17 at 10 22 37 AM" src="https://github.com/user-attachments/assets/4c657dbc-6787-4891-87cc-93c815c44441" />
 
+2) Pairs-based simulation
+For example, simulating 40 individuals, including 10 pairs with autosomal dominant (AD) rare diseases and 10 pairs with autosomal recessive (AR) rare diseases.
+```bash
+python pairs_genotypes.py --n 20 --m 
+```
+- `--n`: Number of AD
+- `--m`: Number of AR
 
+The output fils of this command:
 
+- `pairs_variants.txt`: Contains the simulated causative variants for each sample.
+- `pairs_chrom_pos.txt`: Contains the chromosome and position information for the causative variants.
+- `pairs_genes.csv`: Contains the simulated causative genes for each sample.
+
+3) Pathway-based simulation
+For example, simulating 60 individuals, including 30 with autosomal dominant (AD) rare diseases and 30 with autosomal recessive (AR) rare diseases.
+```bash
+python pairs_genotypes.py --n 30 --m 30
+```
+- `--n`: Number of AD
+- `--m`: Number of AR
+
+The output fils of this command:
+
+- `pathway_variants.txt`: Contains the simulated causative variants for each sample.
+- `pathway_chrom_pos.txt`: Contains the chromosome and position information for the causative variants.
+- `pathway_genes.csv`: Contains the simulated causative genes for each sample.
+
+## Sept 3: Add causative variants into the simulated genotypes
+
+```bash
+# For case-based simulation
+./rd_sim.sh --chrom_pos case_chrom_pos.txt --input eur_genome --variants case_variants.txt --output case_genotypes.vcf
+# For pairs-based simulation
+./rd_sim.sh --chrom_pos pairs_chrom_pos.txt --input eur_genome --variants pairs_variants.txt --output pairs_genotypes.vcf
+# For case-based simulation
+./rd_sim.sh --chrom_pos pathway_chrom_pos.txt --input eur_genome --variants pathway_variants.txt --output pathway_genotypes.vcf
+```
+- `--chrom_pos`: The chromosome and position information for the causative variants.
+- `--input`: The simulated genotypes through Hapgen2
+- `--variants`: The simulated causative genes for each sample
+- `--output`: The simulated genetypes for rare diseases
 
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
