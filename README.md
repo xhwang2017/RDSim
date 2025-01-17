@@ -7,6 +7,8 @@ For genotype simulation, the process begins by simulating genotypes for a specif
 For phenotype simulation, HPO terms related to rare diseases, along with the complete set of HPO terms, are selected from the HPO database. Three scenarios can then be simulated for HPO term selection: using all HPO terms associated with the disease, randomly choosing n HPO terms related to rare diseases, or adding m HPO terms from the entire HPO database to introduce some noise.
 
 Additionally, this simulation tool can be used to simulate rare diseases for specific populations, including European (EUR), Asian (ASN), and African American (AFR).
+## RDSim Process
+<img width="1417" alt="Screenshot 2025-01-17 at 11 12 07 AM" src="https://github.com/user-attachments/assets/79ed0938-f23e-4063-9d3a-ffce0e8a804d" />
 
 # Functions
 **1) Case-based simulation:** The simulation covers 1,508 rare diseases, including 694 autosomal dominant (AD) and 814 autosomal recessive (AR) conditions. Each rare disease patient has a mutation associated with a specific rare disease.
