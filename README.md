@@ -77,17 +77,13 @@ python case_genotypes.py --n 20 --m --i 10
 The outputs of this command:
 
 - `case_variants.txt`: Contains the simulated causative variants for each sample.
-
-<img width="991" alt="Screenshot 2025-01-17 at 10 13 28 AM" src="https://github.com/user-attachments/assets/da6ac614-8ee6-48e1-8fd0-cb9cb5ea29f2" />
+<img width="737" alt="Screenshot 2025-01-17 at 10 20 49 AM" src="https://github.com/user-attachments/assets/d337d6fa-f1d4-48dd-ad69-b7c879fc4cef" />
 
 - `case_chrom_pos.txt`: Contains the chromosome and position information for the causative variants.
-
-<img width="113" alt="Screenshot 2025-01-17 at 10 15 03 AM" src="https://github.com/user-attachments/assets/292909ff-54c1-4a08-b3d0-bba691f324e1" />
+<img width="101" alt="Screenshot 2025-01-17 at 10 21 19 AM" src="https://github.com/user-attachments/assets/6e62e447-25ba-4e16-a75a-e2478d69b6b5" />
 
 - `case_genes.csv`: Contains the simulated causative genes for each sample.
-
-<img width="378" alt="Screenshot 2025-01-17 at 10 15 29 AM" src="https://github.com/user-attachments/assets/b3dc57f5-3e67-48f0-9d85-bfc9f7a18c70" />
-
+<img width="588" alt="Screenshot 2025-01-17 at 10 22 37 AM" src="https://github.com/user-attachments/assets/4c657dbc-6787-4891-87cc-93c815c44441" />
 
 
 
