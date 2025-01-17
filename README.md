@@ -66,6 +66,7 @@ _* The exome genotypes can be generated through the exon_sim.sh function._
 
 ### Step 2: Dertemine the simulation type to generate causative variants
 1) Case-based simulation
+   
 For example, simulating 50 individuals, including 20 with autosomal dominant (AD) rare diseases, 20 with autosomal recessive (AR) rare diseases, and the remaining 10 serving as healthy controls.
 ```bash
 python case_genotypes.py --n 20 --m --i 10
@@ -81,6 +82,7 @@ The output fils of this command:
 - `case_genes.csv`: Contains the simulated causative genes for each sample.
 
 2) Pairs-based simulation
+   
 For example, simulating 40 individuals, including 10 pairs with autosomal dominant (AD) rare diseases and 10 pairs with autosomal recessive (AR) rare diseases.
 ```bash
 python pairs_genotypes.py --n 20 --m 
@@ -95,6 +97,7 @@ The output fils of this command:
 - `pairs_genes.csv`: Contains the simulated causative genes for each sample.
 
 3) Pathway-based simulation
+   
 For example, simulating 60 individuals, including 30 with autosomal dominant (AD) rare diseases and 30 with autosomal recessive (AR) rare diseases.
 ```bash
 python pairs_genotypes.py --n 30 --m 30
@@ -125,8 +128,11 @@ The output fils of this command:
 
 ## Phenotype simulations
 For the phenotype simulation, HPO terms related to rare diseases, along with the complete set of HPO terms, are selected from the HPO database. Three scenarios can then be simulated for HPO term selection: 
+
 (1) Using all HPO terms associated with the disease
+
 (2) Randomly choosing i rare disease-related HPO terms
+
 (3) N rare disease-related HPO terms adding m HPO terms from the entire HPO database to introduce some noise.
 
 ```bash
