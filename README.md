@@ -15,7 +15,7 @@ Additionally, this simulation tool can be used to simulate rare diseases for spe
 
 **2) Pair-based simulation:**  This allows for simulating 1,297 pairs of rare diseases (592 AD and 705 AR). Each pair is assigned the same Orphanet Code, with an associated variant added for each patient. In other words, the two patients in one pair will have different variants, all of which are causal for the disease. This simulated data can be used to match similar patients and identify genes associated with those matches.
 
-**3) Pathway-based simlation:** This allows the simulation of 736 pathway-based rare diseases (342 AD and 396 AR). Each rare disease involves three patients: two as in the pair simulations, and a third who has a mutation in a gene within the same pathway as the causal gene. This approach can be used to match similar patients and identify new mutations in different genes associated with a disease.
+**3) Pathway-based simlation:** This allows the simulation of 736 pathway-based rare diseases (342 AD and 394 AR). Each rare disease involves three patients: two as in the pair simulations, and a third who has a mutation in a gene within the same pathway as the causal gene. This approach can be used to match similar patients and identify new mutations in different genes associated with a disease.
 
 # Installation
 Before you can use the tool, you need to make sure you have the required dependencies installed:
