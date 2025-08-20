@@ -3,8 +3,8 @@ RDSim is a tool for simulating rare disease patient genotypes and phenotypes. It
 
 # Steps to Install and Run RDSim Using Docker
 ## 1. Clone the repository
-'''bash
+
+```bash
 git clone https://github.com/xhwang2017/RDSim.git
 cd RDSim
-'''
-
+```
