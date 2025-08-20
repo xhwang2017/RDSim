@@ -22,6 +22,7 @@ RUN wget https://s3.amazonaws.com/plink2-assets/plink2_linux_x86_64_latest.zip \
 # Copy all scripts into container
 COPY script/ /app/script/
 COPY src/ /app/src/
+COPY data/ /app/data/
 
 # Install Python dependencies if requirements.txt exists
 COPY requirements.txt /app/
