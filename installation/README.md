@@ -33,7 +33,7 @@ This command line is used to open the rdism_container container.
 cd script
 ```
 
-## Step5: Run RDSim Commands
+## Step 5: Run RDSim Commands
 The main RDSim commands and options include:
 
 | Option                 | Description                                                      |
@@ -82,4 +82,4 @@ cd RDSim
 cd RDSim
 cd script
 ```
-## Step4: Run RDSim Commands Shown Above
+## Step 4: Run RDSim Commands Shown Above
