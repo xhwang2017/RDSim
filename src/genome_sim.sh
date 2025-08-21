@@ -25,7 +25,7 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 # Directory to store genetic maps and output VCFs
-mkdir -p genetic_maps 
+mkdir -p genetic_maps output_vcfs
 
 # Download BEAGLE genetic maps once
 ./ProxyTyper.sh -setup_BEAGLE_genetic_maps https://bochet.gcc.biostat.washington.edu/beagle/genetic_maps/plink.GRCh37.map.zip
@@ -65,7 +65,7 @@ for chr in {1..22}; do
     resampled_ID="${all_REF_panel_ID}_resampled"
 
     # Export to VCF
-    ./ProxyTyper.sh -export_VCF "${resampled_ID}" hg19 "${chr}" "${resampled_ID}.vcf.gz"
+    ./ProxyTyper.sh -export_VCF "${resampled_ID}" hg19 "${chr}" output_vcfs/"${resampled_ID}.vcf.gz"
 
     echo "Chromosome ${chr} export to VCF processing complete."
 done
