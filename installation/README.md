@@ -25,7 +25,7 @@ docker run -it --name rdsim_container rdsim bash
 ```bash
 docker start -ai rdsim_container
 ```
-To open the rdism_container
+This command line is used to open the rdism_container container.
 
 ## Step 4: Navigate to the Script Directory
 
@@ -49,7 +49,7 @@ The main RDSim commands and options include:
 | `--pathway_genotypes`  | Simulate genotypes based on pathway-level variants               |
 | `--pathway_phenotypes` | Simulate phenotypes based on pathway-level variants              |
 
-# Option2: Steps to Install and Run RDSim Not Using Docker
+# Option2: Steps to Install and Run RDSim Without Using Docker
 ## Step 1: Install the required dependencies
 Before you can use the tool, you need to make sure you have the required dependencies installed:
 - Python (3.6 or higher)
@@ -68,6 +68,7 @@ BCFtools (optional) can be installed by conda
 ```bash
 conda install -c bioconda bcftools
 ```
+
 ## Step 2: Clone the repository
 
 ```bash
@@ -81,4 +82,4 @@ cd RDSim
 cd RDSim
 cd script
 ```
-## Step4: Run RDSim Commands
+## Step4: Run RDSim Commands Shown Above
