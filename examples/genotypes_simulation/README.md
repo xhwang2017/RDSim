@@ -73,7 +73,7 @@ cd script
 ```
 This generates PLINK files (genome.bim, genome.fam, and genome.bed) containing the merged genomic genotypes for all simulated individuals.
 
-# Step 4: Extract exome genotypes from the genomic genotypes
+# Step 4: Extract exome genotypes from the simulated genomic data
 
 ```bash
 ./RDSim.sh --exome_sim --input genome --output exome
@@ -82,7 +82,24 @@ This generates PLINK files (genome.bim, genome.fam, and genome.bed) containing t
 - `--output`: Specify the filtered PLINK binary file with genotypes in exon regions.
 This generates PLINK files (exome.bim, exome.fam, and exome.bed) containing the merged exome genotypes for all simulated individuals.
 
-# Step 5: 
+# Step 5: Dertemine the simulation type to generate causative variants
+
+## 1. Case-based simulation
+   
+For example, simulating 2000 individuals, including 694 with autosomal dominant (AD) rare diseases, 814 with autosomal recessive (AR) rare diseases, and the remaining 492 serving as healthy controls.
+
+```bash
+python case_genotypes.py --n 694 --m 814 --i 492
+```
+### Parameters
+- `--n`: Number of AD, (maximum 694)
+- `--m`: Number of AR, (maximum 814)
+- `--i`: Number of case controls
+
+### Outputs
+- `case_variants.txt`: Contains the simulated causative variants for each sample.
+- `case_chrom_pos.txt`: Contains the chromosome and position information for the causative variants.
+- `case_genes.csv`: Contains the simulated causative genes for each sample.
 
 
 
