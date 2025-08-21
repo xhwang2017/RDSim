@@ -36,11 +36,10 @@ Ensure Python, PLINK 2, and BCFtools are installed in the image.
 ```bash
 docker run -it --name rdsim_container rdsim bash
 ```
-
+This command line is used to open the rdism_container container.
 ```bash
 docker start -ai rdsim_container
 ```
-This command line is used to open the rdism_container container.
 
 ## 3. Mount Simulated Genotypes into Docker:
 Mount all simulated genotype `.vcf.gz` files into the Docker container `rdsim_container`, placing them in the same directory as `RDSim.sh`.
@@ -72,36 +71,107 @@ cd script
 ./RDSim --genome_merge
 ```
 This generates PLINK files (genome.bim, genome.fam, and genome.bed) containing the merged genomic genotypes for all simulated individuals.
+The simulated genomic dataset contains 77,818,264 variants.
 
 # Step 4: Extract exome genotypes from the simulated genomic data
 
 ```bash
 ./RDSim.sh --exome_sim --input genome --output exome
 ```
+### Parameters
 - `--input`: Specify the PLINK binary file containing the whole genome genotypes.
 - `--output`: Specify the filtered PLINK binary file with genotypes in exon regions.
+  
+### Outputs
 This generates PLINK files (exome.bim, exome.fam, and exome.bed) containing the merged exome genotypes for all simulated individuals.
+The simulated exome genotypes contains 4,416,858 variants.
 
 # Step 5: Dertemine the simulation type to generate causative variants
 
 ## 1. Case-based simulation
-   
+The simulation covers 1,508 rare diseases, including 694 autosomal dominant (AD) and 814 autosomal recessive (AR) conditions. Each rare disease patient has a mutation associated with a specific rare disease.
+
 For example, simulating 2000 individuals, including 694 with autosomal dominant (AD) rare diseases, 814 with autosomal recessive (AR) rare diseases, and the remaining 492 serving as healthy controls.
 
 ```bash
-python case_genotypes.py --n 694 --m 814 --i 492
+./RDSim.sh --case_genotypes --n 694 --m 814 --i 492
 ```
 ### Parameters
-- `--n`: Number of AD, (maximum 694)
-- `--m`: Number of AR, (maximum 814)
+- `--n`: Number of AD (maximum 694)
+- `--m`: Number of AR (maximum 814)
 - `--i`: Number of case controls
 
 ### Outputs
-- `case_variants.txt`: Contains the simulated causative variants for each sample.
-- `case_chrom_pos.txt`: Contains the chromosome and position information for the causative variants.
-- `case_genes.csv`: Contains the simulated causative genes for each sample.
+- `case_variants.txt`: Contains the simulated causative variants for each sample
+- `case_chrom_pos.txt`: Contains the chromosome and position information for the causative variants
+- `case_genes.csv`: Contains the simulated causative genes for each sample  
 
+## 2. Pairs-based simulation
+This tool allows for simulating 1,297 pairs of rare diseases (592 AD and 705 AR). Each pair is assigned the same Orphanet Code, with an associated variant added for each patient. In other words, the two patients in one pair will have different variants, all of which are causal for the disease. This simulated data can be used to match similar patients and identify genes associated with those matches. 
 
+For example, simulating 2,594 individuals, including 1,184 individuals (592 pairs) with autosomal dominant (AD) rare diseases and 1,410 individuals (705 pairs)  with autosomal recessive (AR) rare diseases.
 
+```bash
+./RDSim.sh --pairs_genotypes --n 1184 --m 1410
+```
+### Parameters
+- `--n`: Number of AD (maximum 1184)
+- `--m`: Number of AR (maximum 1410)
+
+### Outputs
+- `pairs_variants.txt`: Contains the simulated causative variants for each sample
+- `pairs_chrom_pos.txt`: Contains the chromosome and position information for the causative variants
+- `pairs_genes.csv`: Contains the simulated causative genes for each sample
+
+## 3. Pathway-based simulation
+This tool allows the simulation of 736 pathway-based rare diseases (342 AD and 394 AR). Each rare disease involves three patients: two as in the pair simulations, and a third who has a mutation in a gene within the same pathway as the causal gene. This approach can be used to match similar patients and identify new mutations in different genes associated with a disease.
+   
+For example, simulating 2,208 individuals, including 1,026 individuals (342 pathway groups) with autosomal dominant (AD) rare diseases and 1,182 individuals (394 pathway groups) with autosomal recessive (AR) rare diseases.
+
+```bash
+python pairs_genotypes.py --n 1026 --m 1182
+```
+### Parameters
+- `--n`: Number of AD (maximum 1026)
+- `--m`: Number of AR (maximum 1182)
+
+### Outputs
+- `pathway_variants.txt`: Contains the simulated causative variants for each sample
+- `pathway_chrom_pos.txt`: Contains the chromosome and position information for the causative variants
+- `pathway_genes.csv`: Contains the simulated causative genes for each sample
+
+# Sept 6: Add causative variants into the simulated genotypes
+
+For case-based simulation
+```bash
+./RDSim.sh --rd_sim --chrom_pos case_chrom_pos.txt --input genome --variants case_variants.txt --output case_genome.vcf
+```
+For pairs-based simulation
+```bash
+./RDSim.sh --rd_sim --chrom_pos pairs_chrom_pos.txt --input genome --variants pairs_variants.txt --output pairs_genome.vcf
+```
+For case-based simulation
+```bash
+./RDSim.sh --rd_sim --chrom_pos pathway_chrom_pos.txt --input genome --variants pathway_variants.txt --output pathway_genome.vcf
+```
+### parameters
+- `--chrom_pos`: The chromosome and position information for the causative variants
+- `--input`: The simulated genotypes through ProxyTyper
+- `--variants`: The simulated causative genes for each sample
+- `--output`: The simulated genetypes for rare diseases
+
+### Outputs
+- `case_genome.vcf`: VCF file containing simulated genotypes for rare disease patients (case-based simulation)
+- `pairs_genome.vcf`: VCF file containing simulated genotypes for rare disease patients (pairs-based simulation)
+- `pathway_genome.vcf`: VCF file containing simulated genotypes for rare disease patients (pathway-based simulation)
+
+# For simulated genotypes of rare diseases patients test using Exomiser
+## 1. extract the genotypes for one sample
+
+```bash
+bcftools view -s SAMPLE_NAME case_exome.vcf -Ov -o case_exome_0001.vcf
+```
+
+## 2. extract 90,000 variants with the mutative variants included
 
 
