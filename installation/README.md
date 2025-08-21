@@ -1,7 +1,7 @@
 # Installation
 RDSim is a tool for simulating rare disease patient genotypes and phenotypes. It provides a user-facing bash script (script/RDSim.sh) to run different simulation workflows. Before installing RDSim, make sure ProxyTyper is installed (https://github.com/harmancilab/ProxyTyper/tree/main/installation), as it is required for simulating sample genotypes.
 
-# Option1: Steps to Install and Run RDSim Using Docker
+# Option 1: Steps to Install and Run RDSim Using Docker
 ## Step 1: Clone the repository
 
 ```bash
@@ -49,7 +49,7 @@ The main RDSim commands and options include:
 | `--pathway_genotypes`  | Simulate genotypes based on pathway-level variants               |
 | `--pathway_phenotypes` | Simulate phenotypes based on pathway-level variants              |
 
-# Option2: Steps to Install and Run RDSim Without Using Docker
+# Option 2: Steps to Install and Run RDSim Without Using Docker
 ## Step 1: Install the required dependencies
 Before you can use the tool, you need to make sure you have the required dependencies installed:
 - Python (3.6 or higher)
