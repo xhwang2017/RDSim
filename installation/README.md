@@ -57,7 +57,7 @@ Before you can use the tool, you need to make sure you have the required depende
 - Pandas
 - ProxyTyper
 - PLINK2
-- Bcftools (optional)
+- BCFtools (optional)
   
 ProxyTyper installation link: (https://github.com/harmancilab/ProxyTyper/tree/main/installation)
 
