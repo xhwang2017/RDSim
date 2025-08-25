@@ -33,9 +33,11 @@ For the phenotype simulation, HPO terms related to rare diseases, along with the
 For case-based simulation
 - `case_phenotypes.csv`: Contains the rare diseases and hpo information for each sample.
 - `case_hpo.csv`: Contains the simulated HPO terms of three scenarios for each sample.
+
 For pairs-based simulation
 - `pairs_phenotypes.csv`: Contains the rare diseases and hpo information for each sample.
 - `pairs_hpo.csv`: Contains the simulated HPO terms of three scenarios for each sample.
+
 For pathway-based simulation
 - `pathway_phenotypes.csv`: Contains the rare diseases and hpo information for each sample.
 - `pathway_hpo.csv`: Contains the simulated HPO terms of three scenarios for each sample.
