@@ -31,7 +31,7 @@ docker build -t rdsim .
 ```
 Ensure Python, PLINK 2, and BCFtools are installed in the image.
 
-## 2. Run the Docker container, naming it `rdsim_container` (if it isn’t already named):
+## 2. Run the Docker Container, Naming it `rdsim_container` (if it isn’t already named):
 
 ```bash
 docker run -it --name rdsim_container rdsim bash
@@ -73,7 +73,7 @@ cd script
 This generates PLINK files (genome.bim, genome.fam, and genome.bed) containing the merged genomic genotypes for all simulated individuals.
 The simulated genomic dataset contains 77,818,264 variants.
 
-# Step 4: Extract exome genotypes from the simulated genomic data
+# Step 4: Extract Exome Genotypes from the Simulated Genomic Data
 
 ```bash
 ./RDSim.sh --exome_sim --input genome --output exome
@@ -86,7 +86,7 @@ The simulated genomic dataset contains 77,818,264 variants.
 This generates PLINK files (exome.bim, exome.fam, and exome.bed) containing the merged exome genotypes for all simulated individuals.
 The simulated exome genotypes contains 4,416,858 variants.
 
-# Step 5: Dertemine the simulation type to generate causative variants
+# Step 5: Dertemine the Simulation Type to Generate Causative Variants
 
 ## 1. Case-based simulation
 The simulation covers 1,508 rare diseases, including 694 autosomal dominant (AD) and 814 autosomal recessive (AR) conditions. Each rare disease patient has a mutation associated with a specific rare disease.
@@ -140,7 +140,7 @@ For example, simulating 2,208 individuals, including 1,026 individuals (342 path
 - `pathway_chrom_pos.txt`: Contains the chromosome and position information for the causative variants
 - `pathway_genes.csv`: Contains the simulated causative genes for each sample
 
-# Sept 6: Add causative variants into the simulated genotypes
+# Sept 6: Add Causative Variants into the Simulated Genotypes
 
 For case-based simulation
 ```bash
@@ -150,7 +150,7 @@ For pairs-based simulation
 ```bash
 ./RDSim.sh --rd_sim --chrom_pos pairs_chrom_pos.txt --input genome --variants pairs_variants.txt --output pairs_genome.vcf
 ```
-For case-based simulation
+For pathway-based simulation
 ```bash
 ./RDSim.sh --rd_sim --chrom_pos pathway_chrom_pos.txt --input genome --variants pathway_variants.txt --output pathway_genome.vcf
 ```
@@ -165,13 +165,56 @@ For case-based simulation
 - `pairs_genome.vcf`: VCF file containing simulated genotypes for rare disease patients (pairs-based simulation)
 - `pathway_genome.vcf`: VCF file containing simulated genotypes for rare disease patients (pathway-based simulation)
 
-# For simulated genotypes of rare diseases patients test using Exomiser
-## 1. extract the genotypes for one sample
+
+# Testing Simulated Genotypes of Rare Disease Patients with Exomiser
+Exomiser accepts only exome sequencing VCF files containing up to 100,000 variants.
+
+## 1. Add Causative Variants to Exome Genotypes
+After extracting exome genotypes from the simulated genomic data (see Step 4), run:
 
 ```bash
-bcftools view -s SAMPLE_NAME case_exome.vcf -Ov -o case_exome_0001.vcf
+./RDSim.sh --rd_sim --chrom_pos case_chrom_pos.txt --input exome --variants case_variants.txt --output exome_genome.vcf
 ```
 
-## 2. extract 90,000 variants with the mutative variants included
+## 2. Extract Genotypes for a Single Sample
+For example, to extract the exome genotypes for sample 0001:
 
+```bash
+bcftools view -s 0001 case_exome.vcf -Ov -o case_exome_0001.vcf
+```
+This generates the exome genotypes for sample 0001, which carries the rare disease Achondroplasia (Orphanet Code 15) caused by a mutation in FGFR3 on chromosome 4, position 1807371.
 
+## 3. Limit Variants to Exomiser Requirements 
+Extract up to 90,000 variants, ensuring the causative mutation is included.
+
+```bash
+#!/bin/bash
+
+# Input VCF
+input_vcf="case_exome_0001.vcf"
+# Output VCF
+output_vcf="case_exome_0001_exomiser.vcf"
+# Required variant
+required_chr="4"
+required_pos="1807371"
+# Total number of variants to extract
+total_variants=90000
+
+# 1. Extract header
+grep '^#' "$input_vcf" > "$output_vcf"
+
+# 2. Extract the required variant
+grep -P "^$required_chr\t$required_pos\t" "$input_vcf" >> "$output_vcf"
+
+# 3. Extract all other variants excluding the required variant
+grep -v '^#' "$input_vcf" | grep -v -P "^$required_chr\t$required_pos\t" > temp_variants.vcf
+
+# 4. Randomly select (total_variants - 1) from remaining variants
+shuf -n $((total_variants - 1)) temp_variants.vcf >> "$output_vcf"
+
+# 5. Cleanup
+rm temp_variants.vcf
+
+echo "Random 90,000 variants including $required_chr:$required_pos written to $output_vcf"
+```
+## 4. Upload `case_exome_0001_exomiser.vcf` to Exomiser for testing the simulated rare disease dataset.
