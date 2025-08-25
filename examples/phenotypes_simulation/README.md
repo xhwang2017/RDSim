@@ -11,20 +11,20 @@ For the phenotype simulation, HPO terms related to rare diseases, along with the
 
 ### For case-based simulation
 ```bash
-./RDSim.sh --case_phenotypes --n 20 --m 20 --hpo_i 5 --hpo_n 3 --hpo_m 2
+./RDSim.sh --case_phenotypes --n 694 --m 814 --hpo_i 5 --hpo_n 3 --hpo_m 2
 ```
 ### For pairs-based simulation
 ```bash
-./RDSim.sh --pairs_phenotypes --n 20 --m 20 --hpo_i 5 --hpo_n 3 --hpo_m 2
+./RDSim.sh --pairs_phenotypes --n 1184 --m 1410 --hpo_i 5 --hpo_n 3 --hpo_m 2
 ```
 
-### For case-based simulation
+### For pathway-based simulation
 ```bash
-./RDSim.sh --pathway_phenotyes --n 30 --m 30 --hpo_i 5 --hpo_n 3 --hpo_m 2
+./RDSim.sh --pathway_phenotyes --n 1026 --m 1182 --hpo_i 5 --hpo_n 3 --hpo_m 2
 ```
 ### Parameters
-- `--n`: Number of AD
-- `--m`: Number of AR
+- `--n`: Number of AD (maximum 694 for case-based simulation, maximum 1,184 for pairs-based simulation, maximum 1,026 for pathway-based simulation)
+- `--m`: Number of AR (maximum 814 for case-based simulation, maximum 1,410 for pairs-based simulation, maximum 1,182 for pathway-based simulation)
 - `--hpo_i`: Number of rare disease-related HPO terms simulating scenarios (2) randomly choosing i rare disease-related HPO terms.
 - `--hpo_n`: Number of rare disease-related HPO terms simulating scenarios (3) n rare disease-related HPO terms adding m HPO terms from the entire HPO database to introduce some noise.
 - `--hpo_m`: Number of rare disease-unrelated HPO terms simulating scenarios (3) n rare disease-related HPO terms adding m HPO terms from the entire HPO database to introduce some noise.
