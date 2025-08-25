@@ -129,7 +129,7 @@ This tool allows the simulation of 736 pathway-based rare diseases (342 AD and 3
 For example, simulating 2,208 individuals, including 1,026 individuals (342 pathway groups) with autosomal dominant (AD) rare diseases and 1,182 individuals (394 pathway groups) with autosomal recessive (AR) rare diseases.
 
 ```bash
-python pairs_genotypes.py --n 1026 --m 1182
+./RDSim.sh pathway_genotypes --n 1026 --m 1182
 ```
 ### Parameters
 - `--n`: Number of AD (maximum 1026)
