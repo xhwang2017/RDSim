@@ -166,7 +166,7 @@ def case_hpo(i, n, m):
     """    
     
     # read the orphanet code and hpoid of case information
-    data_file = os.path.join(script_dir, "case_phenotypes.csv")
+    data_file = os.path.join(script_dir, "../script/case_phenotypes.csv")
     data_file = os.path.abspath(data_file)
     df_case_hposet = pd.read_csv(data_file)
     
