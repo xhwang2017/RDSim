@@ -162,7 +162,7 @@ def pairs_hpo(i, n, m):
     """    
         
     # read the orphanet code and hpoid of pairs information
-    data_file = os.path.join(script_dir, "pairs_phenotypes.csv")
+    data_file = os.path.join(script_dir, "../script/pairs_phenotypes.csv")
     data_file = os.path.abspath(data_file)
     df_pairs_hposet = pd.read_csv(data_file)
     
