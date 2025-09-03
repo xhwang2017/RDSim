@@ -161,7 +161,7 @@ def pathway_hpo(i, n, m):
     """    
         
     # read the orphanet code and hpoid of pathway information
-    data_file = os.path.join(script_dir, "pathway_phenotypes.csv")
+    data_file = os.path.join(script_dir, "../script/pathway_phenotypes.csv")
     data_file = os.path.abspath(data_file)
     df_pathway_hposet = pd.read_csv(data_file)
     
