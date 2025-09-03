@@ -20,7 +20,7 @@ For the phenotype simulation, HPO terms related to rare diseases, along with the
 
 ### For pathway-based simulation
 ```bash
-./RDSim.sh --pathway_phenotyes --n 1026 --m 1182 --hpo_i 5 --hpo_n 3 --hpo_m 2
+./RDSim.sh --pathway_phenotypes --n 1026 --m 1182 --hpo_i 5 --hpo_n 3 --hpo_m 2
 ```
 ### Parameters
 - `--n`: Number of AD (maximum 694 for case-based simulation, maximum 1,184 for pairs-based simulation, maximum 1,026 for pathway-based simulation)
