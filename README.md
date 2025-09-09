@@ -8,7 +8,7 @@ For phenotype simulation, HPO terms related to rare diseases, along with the com
 
 # RDSim Process
 <img width="1417" alt="Screenshot 2025-01-17 at 11 12 07 AM" src="https://github.com/user-attachments/assets/79ed0938-f23e-4063-9d3a-ffce0e8a804d" />
-![Figure1_JPEG](https://github.com/user-attachments/assets/9cf92cd2-1436-4534-a78e-09504ce444eb)
+<img src="https://github.com/user-attachments/assets/9cf92cd2-1436-4534-a78e-09504ce444eb" alt="Figure1" width="600"/>
 
 Fig. 1. Overview of the RDSim workflow and case study result. (a) Genotype simulation: Background genotypes were generated using the 1000 Genomes Project Phase 3 dataset as the reference panel and exome regions were subsequently extracted. Rare disease variants were curated from ClinVar and Orphanet, and an additional variant was introduced into selected individuals to produce the final simulated genotypes. (b) Phenotype simulation: rare disease-associated and global HPO terms were obtained from the HPO and Orphanet database. Three scenarios were implemented for phenotype selection: (i) inclusion of all HPO terms associated with the disease; (ii) random selection of n disease-related HPO terms; or (iii) random selection of n disease-related HPO terms supplemented with m additional terms from the full HPO set to introduce noise. (c) Case study result: A simulated patient carrying the pathogenic FGFR3 variant and phenotypes including hearing impairment (HP:0000365) and knee joint hypermobility (HP:0045086) was analyzed with Exomiser. Using the hiPHIVE prioritization algorithm, Exomiser ranked FGFR3 as the top candidate gene, with a phenotypic similarity score of 0.888 to achondroplasia associated with FGFR3.
 
