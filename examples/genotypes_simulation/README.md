@@ -209,7 +209,7 @@ For example
 ./RDSim.sh --match_variants --input exome_genome.vcf.gz --output exome_genome_matched.vcf.gz --gnomad gnomad.exomes.r2.1.1.sites.vcf.bgz
 ```
 
-### parameters
+### Parameters
 - `--input`: Simulated exome genotypes for the rare disease.
 - `--output`: Output VCF with rare variants in the simulated genotypes matched to gnomAD.
 - `--gnomad`: gnomAD exome VCF containing all chromosome sites.
