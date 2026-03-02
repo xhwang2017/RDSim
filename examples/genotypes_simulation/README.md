@@ -189,7 +189,7 @@ RDSim allows the addition of up to three different novel mutations for each simu
 ```bash
 ./RDSim.sh --rd_sim --chrom_pos new_chrom_pos.txt --input genome --variants new_variants.txt --output new_genome.vcf
 ```
-### parameters
+### Parameters
 - `--chrom_pos`: The chromosome and position information for the novel mutations
 - `--input`: The simulated genotypes through ProxyTyper
 - `--variants`: The simulated novel mutations for each sample
@@ -197,7 +197,6 @@ RDSim allows the addition of up to three different novel mutations for each simu
 
 ### Outputs
 - `new_genome.vcf`: VCF file containing simulated genotypes with novel mutations for rare disease patients (case-based simulation)
-
 
 # Sept 8: Match rare variant distributions between simulated genotypes and gnomAD genotypes. 
 Histogram matching of the rare variants for the simulated VCF to the gnomad VCF for exome
@@ -217,6 +216,7 @@ For example
 
 ### Outputs
 - `exome_genome_matched.vcf.gz`: VCF file with the rare variant distribution of the simulated genotypes aligned to gnomAD.
+
 
 
 # Testing Simulated Genotypes of Rare Disease Patients with Exomiser
