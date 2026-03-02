@@ -129,7 +129,7 @@ This tool allows the simulation of 736 pathway-based rare diseases (342 AD and 3
 For example, simulating 2,208 individuals, including 1,026 individuals (342 pathway groups) with autosomal dominant (AD) rare diseases and 1,182 individuals (394 pathway groups) with autosomal recessive (AR) rare diseases.
 
 ```bash
-./RDSim.sh pathway_genotypes --n 1026 --m 1182
+./RDSim.sh --pathway_genotypes --n 1026 --m 1182
 ```
 ### Parameters
 - `--n`: Number of AD (maximum 1026)
@@ -164,6 +164,46 @@ For pathway-based simulation
 - `case_genome.vcf`: VCF file containing simulated genotypes for rare disease patients (case-based simulation)
 - `pairs_genome.vcf`: VCF file containing simulated genotypes for rare disease patients (pairs-based simulation)
 - `pathway_genome.vcf`: VCF file containing simulated genotypes for rare disease patients (pathway-based simulation)
+
+# Sept 7: Add novel mutations into the simulated genotypes. 
+
+RDSim allows the addition of up to three different novel mutations for each simulated rare disease. Users can specify how many novel mutations to add to the simulated genotypes, with the allowed range being from 0 to 3.
+
+(1) For example, simulating 2000 individuals, including 694 with autosomal dominant (AD) rare diseases, 814 with autosomal recessive (AR) rare diseases, and the remaining 492 serving as healthy controls.
+
+```bash
+./RDSim.sh --new_variants --v 3 --n 694 --m 814 --i 492
+```
+### Parameters
+- `--v`: Number of novel mutations for each simulated rare disease, range from 0-3 (maximum 3)
+- `--n`: Number of AD (maximum 694)
+- `--m`: Number of AR (maximum 814)
+- `--i`: Number of case controls
+
+### Outputs
+- `new_variants.txt`: Contains the simulated novel mutations for each sample
+- `new_chrom_pos.txt`: Contains the chromosome and position information for the novel mutations
+
+(2) Use --rd_sim to add the new mutations into the simulated genotypes
+
+```bash
+./RDSim.sh --rd_sim --chrom_pos new_chrom_pos.txt --input genome --variants new_variants.txt --output new_genome.vcf
+```
+### parameters
+- `--chrom_pos`: The chromosome and position information for the novel mutations
+- `--input`: The simulated genotypes through ProxyTyper
+- `--variants`: The simulated novel mutations for each sample
+- `--output`: The simulated genetypes for rare diseases with novel mutations
+
+### Outputs
+- `new_genome.vcf`: VCF file containing simulated genotypes with novel mutations for rare disease patients (case-based simulation)
+
+
+# Sept 8: Match rare variant distributions between simulated genotypes and gnomAD genotypes. 
+Histogram matching of the rare variants for the simulated VCF to the gnomad VCF for exome
+
+
+
 
 
 # Testing Simulated Genotypes of Rare Disease Patients with Exomiser
