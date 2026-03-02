@@ -201,9 +201,22 @@ RDSim allows the addition of up to three different novel mutations for each simu
 
 # Sept 8: Match rare variant distributions between simulated genotypes and gnomAD genotypes. 
 Histogram matching of the rare variants for the simulated VCF to the gnomad VCF for exome
+The gnomAD VCF file was downloaded from the official gnomAD website.
+The gnomAD v2.1.1 dataset includes data from 125,748 exomes and 15,708 whole genomes, all mapped to the GRCh37 (hg19) reference genome.
+https://storage.googleapis.com/gcp-public-data--gnomad/release/2.1.1/vcf/exomes/gnomad.exomes.r2.1.1.sites.vcf.bgz
 
+For example
+```bash
+./RDSim.sh --match_variants --input exome_genome.vcf.gz --output exome_genome_matched.vcf.gz --gnomad gnomad.exomes.r2.1.1.sites.vcf.bgz
+```
 
+### parameters
+- `--input`: Simulated exome genotypes for the rare disease.
+- `--output`: Output VCF with rare variants in the simulated genotypes matched to gnomAD.
+- `--gnomad`: gnomAD exome VCF containing all chromosome sites.
 
+### Outputs
+- `exome_genome_matched.vcf.gz`: VCF file with the rare variant distribution of the simulated genotypes aligned to gnomAD.
 
 
 # Testing Simulated Genotypes of Rare Disease Patients with Exomiser
@@ -224,7 +237,7 @@ bcftools view -s 0001 case_exome.vcf -Ov -o case_exome_0001.vcf
 ```
 This generates the exome genotypes for sample 0001, which carries the rare disease Achondroplasia (Orphanet Code 15) caused by a mutation in FGFR3 on chromosome 4, position 1807371.
 
-## 3. Limit Variants to Exomiser Requirements 
+## 3. Limit Variants to Exomiser Requirements (Optional)
 Extract up to 90,000 variants, ensuring the causative mutation is included.
 
 ```bash
@@ -257,4 +270,5 @@ rm temp_variants.vcf
 
 echo "Random 90,000 variants including $required_chr:$required_pos written to $output_vcf"
 ```
-## 4. Upload `case_exome_0001_exomiser.vcf` to Exomiser for testing the simulated rare disease dataset.
+## 4. Download Exomiser on your server following the instructions on the official Exomiser installation guide, then use it to test the simulated rare disease data.
+https://exomiser.readthedocs.io/en/stable/installation.html
