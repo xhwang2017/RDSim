@@ -31,8 +31,6 @@ To evaluate RDSim with Exomiser, we simulated exome data for a patient with acho
 <img width="2025" height="2277" alt="Figure3" src="https://github.com/user-attachments/assets/816c484a-e53d-4c8d-afbe-eb9d0842cf7e" />
 
 Fig. 3. Exomiser evaluation. A simulated patient carrying a de novo FGFR3 variant and presenting phenotypes including anteverted nares (HP:0000463), depressed nasal bridge (HP:0005280), obesity (HP:0001513), limb undergrowth (HP:0009826), and thoracolumbar kyphosis (HP:0005619) was analyzed using Exomiser. FGFR3 was ranked as the top-prioritized gene, with an Exomiser score of 0.993, a variant score of 0.984, and a phenotypic similarity score of 0.883, consistent with achondroplasia associated with FGFR3. The introduced novel variant (4-1807376-T-A) was successfully identified by Exomiser. 
-<img width="3152" height="25" alt="image" src="https://github.com/user-attachments/assets/ea9be500-eadf-4b04-b413-205819bbd893" />
-
 
 
 # Functions
